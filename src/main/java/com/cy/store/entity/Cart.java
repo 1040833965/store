@@ -1,0 +1,95 @@
+package com.cy.store.entity;
+
+/**
+ * @author 张金铭
+ * @version 1.8
+ * @Date:2022/7/25 14:57
+ * @Description: 购物车实体类
+ */
+@SuppressWarnings({"all"})
+public class Cart extends BaseEntity{
+    private Integer cid ;//'购物车数据id',
+    private Integer uid ;// '用户id',
+    private Integer pid ;// '商品id',
+    private Long price ;// '加入时商品单价',
+    private Integer num ;// '商品数量',
+
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cid=" + cid +
+                ", uid=" + uid +
+                ", pid=" + pid +
+                ", price=" + price +
+                ", num=" + num +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cart)) return false;
+
+        Cart cart = (Cart) o;
+
+        if (getCid() != null ? !getCid().equals(cart.getCid()) : cart.getCid() != null) return false;
+        if (getUid() != null ? !getUid().equals(cart.getUid()) : cart.getUid() != null) return false;
+        if (getPid() != null ? !getPid().equals(cart.getPid()) : cart.getPid() != null) return false;
+        if (getPrice() != null ? !getPrice().equals(cart.getPrice()) : cart.getPrice() != null) return false;
+        if (getNum() != null ? !getNum().equals(cart.getNum()) : cart.getNum() != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCid() != null ? getCid().hashCode() : 0;
+        result = 31 * result + (getUid() != null ? getUid().hashCode() : 0);
+        result = 31 * result + (getPid() != null ? getPid().hashCode() : 0);
+        result = 31 * result + (getPrice() != null ? getPrice().hashCode() : 0);
+        result = 31 * result + (getNum() != null ? getNum().hashCode() : 0);
+        return result;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+}

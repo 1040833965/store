@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.store.mapper.ProductMapper">
+    <resultMap id="ProductEntityMap" type="com.cy.store.entity.Product">
+        <id column="id" property="id"/>
+        <result column="categoryId" property="category_id"/>
+        <result column="itemType" property="item-type" />
+        <result column="title" property="title" />
+        <result column="sellPoint" property="sell_point" />
+        <result column="price" property="price" />
+        <result column="num" property="num" />
+        <result column="image" property="image" />
+        <result column="status" property="status" />
+        <result column="priority" property="priority"/>
+        <result column="created_user" property="createdUser"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="modified_user" property="modifiedUser"/>
+        <result column="modified_time" property="modifiedTime"/>
+    </resultMap>
+
+
+
+    <select id="findHotList" resultMap="ProductEntityMap">
+        select * from t_product where status = 1 order by priority limit 0,4
+    </select>
+
+    <select id="findById" resultMap="ProductEntityMap">
+        select * from t_product where id = #{id}
+    </select>
+</mapper>
